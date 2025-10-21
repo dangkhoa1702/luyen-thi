@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { Sidebar } from './components/Sidebar';
-import MainDashboard2 from './components/MainDashboard_2Subjects';
+import { MainDashboard } from './components/MainDashboard';
 import { AIChatbot } from './components/AIChatbot';
 import { StudyPlanner } from './components/StudyPlanner';
 import { Community } from './components/Community';
@@ -127,7 +127,7 @@ const App: React.FC = () => {
   const renderContent = () => {
     switch (currentView) {
       case 'dashboard':
-        return <MainDashboard2 />;
+        return <MainDashboard setView={handleSetView} />;
       case 'mock-exam-2':
         return <MockExam2Subjects />;
       case 'ai-tutor':
@@ -154,7 +154,7 @@ const App: React.FC = () => {
       case 'daily-reminder':
         return <DailyReminder />;
       default:
-        return <MainDashboard2 />;
+        return <MainDashboard setView={handleSetView} />;
     }
   };
 
